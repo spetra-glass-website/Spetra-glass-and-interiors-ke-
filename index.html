@@ -2,184 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spetra Glass and Interiors KE</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
-    }
-    header {
       background-color: #000;
       color: gold;
-      padding: 20px 40px;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: gold;
+      color: black;
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      padding: 1em 0;
     }
     nav {
-      background-color: #111;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background-color: #111;
+      padding: 1em;
+      gap: 1em;
     }
     nav a {
       color: gold;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ffd700cc;
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 30px auto 60px;
-      padding: 0 20px;
-    }
-    h2 {
-      color: #000;
-      border-bottom: 3px solid gold;
-      padding-bottom: 8px;
-      margin-bottom: 25px;
-      font-weight: 700;
-      font-size: 2rem;
+      font-weight: bold;
     }
     section {
-      margin-bottom: 60px;
+      padding: 2em;
     }
-    ul.products-list {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-    ul.products-list li {
-      background: #f8f8f8;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
-    }
-    ul.products-list li:hover {
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    }
-    ul.products-list li h3 {
-      margin-top: 0;
-      color: #333;
-      font-size: 1.3rem;
+    h2 {
+      border-bottom: 2px solid gold;
+      padding-bottom: 0.5em;
     }
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 1em;
     }
     .gallery img {
       width: 100%;
-      border-radius: 8px;
-      border: 3px solid gold;
-      object-fit: cover;
-      height: 160px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    .testimonial {
-      background: #f0e68c22;
-      border-left: 6px solid gold;
-      padding: 20px 25px;
-      margin-bottom: 25px;
-      border-radius: 6px;
-      font-style: italic;
-      box-shadow: 1px 1px 6px #e0d869aa;
-    }
-    .testimonial p {
-      margin: 0 0 15px 0;
-      font-size: 1.1rem;
-    }
-    .testimonial .author {
-      font-weight: 700;
-      color: #555;
-      font-style: normal;
-      font-size: 1rem;
-    }
-    .contact-info {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 10px;
-    }
-    form {
-      max-width: 500px;
-      background: #f8f8f8;
-      padding: 25px;
+      max-width: 300px;
       border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-      margin-top: 20px;
     }
-    form label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #333;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-    form button {
-      background-color: gold;
-      border: none;
-      padding: 12px 20px;
-      font-weight: 700;
-      color: #000;
-      cursor: pointer;
-      font-size: 1.1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-    form button:hover {
-      background-color: #e6c200;
-    }
-    footer {
-      background-color: #000;
-      color: gold;
+    .contact {
+      background-color: #111;
+      padding: 2em;
       text-align: center;
-      padding: 25px 10px;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-      position: relative;
+    }
+    .contact a {
+      color: gold;
+      font-weight: bold;
+      text-decoration: none;
     }
     @media (max-width: 600px) {
-      nav {
+      .gallery {
         flex-direction: column;
-        gap: 15px;
-      }
-      header {
-        font-size: 1.8rem;
-      }
-      h2 {
-        font-size: 1.6rem;
+        align-items: center;
       }
     }
   </style>
@@ -187,118 +70,84 @@
 <body>
 
 <header>
-  Spetra Glass and Interiors KE
+  <h1>Spetra Glass and Interiors KE</h1>
+  <p>Your Trusted Architectural Glass Partner</p>
 </header>
 
 <nav>
-  <a href="#products">Products</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#testimonials">Testimonials</a>
-  <a href="#about">About Us</a>
+  <a href="#shower">Shower Cubicles</a>
+  <a href="#balustrades">Balustrades</a>
+  <a href="#partitions">Office Partitions</a>
+  <a href="#doors">Doors</a>
+  <a href="#pergolas">Pergolas</a>
+  <a href="#mirrors">Mirrors</a>
+  <a href="#film">Film & Aluminum</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<div class="container">
+<section id="shower">
+  <h2>Shower Cubicles</h2>
+  <div class="gallery">
+    <img src="shower1.jpg" alt="Shower Cubicle 1" />
+    <img src="shower2.jpg" alt="Shower Cubicle 2" />
+  </div>
+</section>
 
-  <section id="products">
-    <h2>Our Products & Services</h2>
-    <ul class="products-list">
-      <li>
-        <h3>Shower Cubicles</h3>
-        <p>Stylish, durable shower enclosures tailored to fit your bathroom perfectly.</p>
-      </li>
-      <li>
-        <h3>Balcony and Staircase Balustrades</h3>
-        <p>Elegant and secure glass balustrades to enhance safety without compromising aesthetics.</p>
-      </li>
-      <li>
-        <h3>Office Partitions</h3>
-        <p>Modern glass partitions for functional and open office environments.</p>
-      </li>
-      <li>
-        <h3>Sliding and Swing Doors</h3>
-        <p>Smooth, stylish glass doors to complement any entrance or interior space.</p>
-      </li>
-      <li>
-        <h3>Pergolas</h3>
-        <p>Durable glass pergolas providing shade and sophistication for outdoor spaces.</p>
-      </li>
-      <li>
-        <h3>Mirrors</h3>
-        <p>Custom mirrors crafted to fit your design needs perfectly.</p>
-      </li>
-      <li>
-        <h3>Aluminum and Frosted Film Installations</h3>
-        <p>Privacy and style combined with high-quality aluminum and frosted film solutions.</p>
-      </li>
-    </ul>
-  </section>
+<section id="balustrades">
+  <h2>Balcony & Staircase Balustrades</h2>
+  <div class="gallery">
+    <img src="balustrade1.jpg" alt="Balustrade 1" />
+    <img src="balustrade2.jpg" alt="Balustrade 2" />
+  </div>
+</section>
 
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/300x160?text=Shower+Cubicles" alt="Shower Cubicles" />
-      <img src="https://via.placeholder.com/300x160?text=Balustrades" alt="Balcony and Staircase Balustrades" />
-      <img src="https://via.placeholder.com/300x160?text=Office+Partitions" alt="Office Partitions" />
-      <img src="https://via.placeholder.com/300x160?text=Sliding+and+Swing+Doors" alt="Sliding and Swing Doors" />
-      <img src="https://via.placeholder.com/300x160?text=Pergolas" alt="Pergolas" />
-      <img src="https://via.placeholder.com/300x160?text=Mirrors" alt="Mirrors" />
-      <img src="https://via.placeholder.com/300x160?text=Frosted+Film" alt="Aluminum and Frosted Film Installations" />
-    </div>
-  </section>
+<section id="partitions">
+  <h2>Office Partitions</h2>
+  <div class="gallery">
+    <img src="partition1.jpg" alt="Office Partition 1" />
+    <img src="partition2.jpg" alt="Office Partition 2" />
+  </div>
+</section>
 
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonial">
-      <p>"Spetra Glass transformed our office space with beautiful partitions. Highly recommend their professional service!"</p>
-      <div class="author">— Jane M.</div>
-    </div>
-    <div class="testimonial">
-      <p>"The balcony balustrades look amazing and give our home a modern touch. Great craftsmanship and timely delivery."</p>
-      <div class="author">— David K.</div>
-    </div>
-    <div class="testimonial">
-      <p>"Excellent quality shower cubicles installed with precision. Customer service was very helpful throughout."</p>
-      <div class="author">— Mercy W.</div>
-    </div>
-  </section>
+<section id="doors">
+  <h2>Sliding & Swing Doors</h2>
+  <div class="gallery">
+    <img src="door1.jpg" alt="Door 1" />
+    <img src="door2.jpg" alt="Door 2" />
+  </div>
+</section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Spetra Glass and Interiors KE is a specialized firm offering a range of architectural glass solutions. With years of experience, we pride ourselves on expert craftsmanship, customized solutions, and delivering projects on time and within budget.</p>
-    <p>Our mission is to enhance the beauty and functionality of your spaces through innovative glass designs and installations.</p>
-  </section>
+<section id="pergolas">
+  <h2>Pergolas</h2>
+  <div class="gallery">
+    <img src="pergola1.jpg" alt="Pergola 1" />
+    <img src="pergola2.jpg" alt="Pergola 2" />
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>We'd love to hear from you! Whether you have questions, want a free quote, or need advice on your next project, reach out to us using the form below or contact details.</p>
-    
-    <form id="contactForm" action="mailto:info@spetraglasske.com" method="post" enctype="text/plain">
-      <label for="name">Name *</label>
-      <input type="text" id="name" name="Name" placeholder="Your full name" required />
+<section id="mirrors">
+  <h2>Mirrors</h2>
+  <div class="gallery">
+    <img src="mirror1.jpg" alt="Mirror 1" />
+    <img src="mirror2.jpg" alt="Mirror 2" />
+  </div>
+</section>
 
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="Email" placeholder="you@example.com" required />
+<section id="film">
+  <h2>Aluminum & Frosted Film Installations</h2>
+  <div class="gallery">
+    <img src="film1.jpg" alt="Film Installation 1" />
+    <img src="film2.jpg" alt="Film Installation 2" />
+  </div>
+</section>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="Phone" placeholder="+254 7XX XXX XXX" />
-
-      <label for="message">Message *</label>
-      <textarea id="message" name="Message" rows="5" placeholder="Your message or project details" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-
-    <p class="contact-info">Phone: <a href="tel:+254743033842" style="color: gold; text-decoration: none;">+254 743 033 842</a></p>
-    <p class="contact-info">Email: <a href="mailto:info@spetraglasske.com" style="color: gold; text-decoration: none;">info@spetraglasske.com</a></p>
-    <p class="contact-info">Location: Nairobi, Kenya</p>
-  </section>
-
-</div>
-
-<footer>
-  &copy; 2025 Spetra Glass and Interiors KE. All rights reserved.
-</footer>
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Phone: <strong>+254 743 033 842</strong></p>
+  <p>
+    <a href="https://wa.me/254743033842" target="_blank">📱 Message us on WhatsApp</a>
+  </p>
+</section>
 
 </body>
 </html>
