@@ -2,236 +2,295 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spetra Glass and Interiors KE</title>
   <style>
+    /* Reset and basic styles */
     body {
-      background-color: #fff;
-      color: gold;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
+      color: black;
+    }
+    a {
+      text-decoration: none;
+      color: gold;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: black;
+    }
+    header {
+      background-color: black;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: gold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    }
+    nav a {
+      margin: 0 1em;
+      font-size: 1.1rem;
     }
 
-    /* Hero Banner */
+    /* Hero banner */
     .hero {
-      background-image: url('https://images.unsplash.com/photo-1601291221076-19aee1e77bb6');
+      background-image: url('https://images.unsplash.com/photo-1601291221076-19aee1e77bb6?auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
       height: 100vh;
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      color: gold;
       text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
     }
-
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
     .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.6);
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
       padding: 2em;
-      border-radius: 15px;
     }
-
     .hero h1 {
-      font-size: 2.8rem;
-      color: gold;
+      font-size: 4rem;
       margin-bottom: 0.5em;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
     }
-
     .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 1em;
-      color: gold;
+      font-size: 1.5rem;
+      margin-bottom: 1.5em;
+      text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
     }
-
-    .hero-buttons a {
+    .hero-buttons .btn {
+      display: inline-block;
+      background-color: gold;
+      color: black;
+      padding: 0.85em 2em;
+      margin: 0 0.7em;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5);
+    }
+    .hero-buttons .btn:hover {
       background-color: black;
       color: gold;
-      padding: 0.75em 1.5em;
-      text-decoration: none;
-      margin: 0 0.5em;
-      border-radius: 5px;
-      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(255, 215, 0, 0.9);
     }
-
-    .hero-buttons a:hover {
-      background-color: gold;
-      color: black;
-    }
-
-    header {
-      background-color: gold;
-      color: black;
-      text-align: center;
-      padding: 1.5em;
-    }
-
-    nav {
-      background-color: #111;
-      text-align: center;
-      padding: 1em;
-    }
-    nav a {
+    .hero-buttons .btn-secondary {
+      background-color: transparent;
+      border: 2px solid gold;
       color: gold;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.5em 1em;
-      border-radius: 4px;
     }
-    nav a:hover {
+    .hero-buttons .btn-secondary:hover {
       background-color: gold;
       color: black;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1.5px;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .hero-buttons .btn {
+        padding: 0.65em 1.2em;
+        font-size: 1rem;
+        margin: 0 0.4em;
+      }
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Main content styling */
+    main {
+      max-width: 1000px;
+      margin: 2em auto;
+      padding: 0 1em;
     }
 
     section {
-      padding: 2em;
+      margin-bottom: 3em;
     }
 
-    h1, h2, h3 {
+    h2 {
       color: gold;
+      border-bottom: 3px solid gold;
+      padding-bottom: 0.3em;
+      margin-bottom: 1em;
+      font-weight: 700;
     }
 
-    p {
-      max-width: 800px;
-      line-height: 1.6;
-      color: #444;
+    /* Products list */
+    ul.products {
+      list-style-type: none;
+      padding: 0;
     }
-
-    footer {
-      background-color: #111;
-      text-align: center;
+    ul.products li {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      margin-bottom: 0.75em;
       padding: 1em;
-      color: gold;
+      border-radius: 8px;
+      font-weight: 600;
     }
 
+    /* Gallery */
     .gallery {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 1em;
+      gap: 1em;
+      justify-content: center;
     }
-
+    .gallery div {
+      flex: 1 1 250px;
+      max-width: 250px;
+      text-align: center;
+    }
     .gallery img {
       width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      border: 2px solid gold;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      margin-bottom: 0.5em;
+    }
+    .gallery p {
+      font-weight: 600;
+      color: #555;
     }
 
-    @media (max-width: 600px) {
-      .gallery {
-        flex-direction: column;
-        align-items: center;
-      }
+    /* Contact section */
+    #contact {
+      background: #f7f7f7;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
     }
-
-    .whatsapp {
-      margin-top: 1.5em;
+    #contact h2 {
+      margin-top: 0;
     }
-
-    .whatsapp a {
-      background-color: black;
-      color: gold;
-      padding: 10px 15px;
+    #contact p {
+      font-size: 1.1rem;
+      margin: 0.5em 0;
+    }
+    #contact a.phone {
+      color: black;
+      font-weight: 700;
+      font-size: 1.3rem;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+      border: 2px solid gold;
+      padding: 0.5em 1.2em;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 1em;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-
-    .whatsapp a:hover {
+    #contact a.phone:hover {
       background-color: gold;
       color: black;
     }
+
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <h1>Spetra Glass</h1>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Full-Screen Banner -->
-  <section class="hero">
+  <section id="home" class="hero">
     <div class="hero-overlay">
       <h1>Spetra Glass and Interiors KE</h1>
       <p>Architectural Glass Solutions for Bold Designs</p>
       <div class="hero-buttons">
-        <a href="#products">Our Products</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#products" class="btn">Our Products</a>
+        <a href="#contact" class="btn btn-secondary">Contact Us</a>
       </div>
     </div>
   </section>
 
-  <header>
-    <h2>Specialists in Architectural Glass Solutions</h2>
-  </header>
+  <main>
+    <section id="products">
+      <h2>Our Products & Services</h2>
+      <ul class="products">
+        <li>Shower Cubicles</li>
+        <li>Balcony and Staircase Balustrades</li>
+        <li>Office Partitions</li>
+        <li>Sliding and Swing Doors</li>
+        <li>Pergolas</li>
+        <li>Mirrors</li>
+        <li>Aluminum and Frosted Film Installations</li>
+      </ul>
+    </section>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <div>
+          <img src="shower1.jpg" alt="Shower Cubicle Example" />
+          <p>Shower Cubicles</p>
+        </div>
+        <div>
+          <img src="balustrade1.jpg" alt="Balcony Balustrade Example" />
+          <p>Balcony and Staircase Balustrades</p>
+        </div>
+        <div>
+          <img src="office1.jpg" alt="Office Partition Example" />
+          <p>Office Partitions</p>
+        </div>
+        <div>
+          <img src="doors1.jpg" alt="Sliding and Swing Doors Example" />
+          <p>Sliding and Swing Doors</p>
+        </div>
+        <div>
+          <img src="pergola1.jpg" alt="Pergola Example" />
+          <p>Pergolas</p>
+        </div>
+        <div>
+          <img src="mirror1.jpg" alt="Mirror Example" />
+          <p>Mirrors</p>
+        </div>
+        <div>
+          <img src="film1.jpg" alt="Aluminum and Frosted Film Example" />
+          <p>Aluminum and Frosted Film Installations</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="home">
-    <h2>Welcome to Spetra Glass and Interiors KE</h2>
-    <p>
-      At Spetra Glass and Interiors KE, we transform ordinary spaces into extraordinary masterpieces with custom architectural glass and aluminum designs. From luxury shower cubicles to elegant office partitions and stunning pergolas — we bring your vision to life.
-    </p>
-    <p>
-      Whether you're a homeowner, developer, or business owner, we have the solution that fits both your style and function.
-    </p>
-  </section>
-
-  <section id="products">
-    <h2>Our Products</h2>
-
-    <h3>Shower Cubicles</h3>
-    <p>Elegant, durable enclosures tailored to your style. Choose frameless, semi-framed or framed designs.</p>
-
-    <h3>Balcony and Staircase Balustrades</h3>
-    <p>Modern safety and style with tempered glass and steel fixtures.</p>
-
-    <h3>Office Partitions</h3>
-    <p>Clean, functional layouts with natural light and privacy balance.</p>
-
-    <h3>Sliding and Swing Doors</h3>
-    <p>Stylish entrances for residential and commercial spaces.</p>
-
-    <h3>Pergolas</h3>
-    <p>Transform your outdoors with aluminum and glass pergola systems.</p>
-
-    <h3>Mirrors</h3>
-    <p>Custom and functional mirrors for any space.</p>
-
-    <h3>Aluminum and Frosted Film Installations</h3>
-    <p>Elegant privacy and design features for windows and doors.</p>
-  </section>
-
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="shower1.jpg" alt="Shower Cubicles" />
-      <img src="balustrade1.jpg" alt="Balcony and Staircase Balustrades" />
-      <img src="office1.jpg" alt="Office Partitions" />
-      <img src="door1.jpg" alt="Sliding and Swing Doors" />
-      <img src="pergola1.jpg" alt="Pergolas" />
-      <img src="mirror1.jpg" alt="Mirrors" />
-      <img src="frosted1.jpg" alt="Aluminum and Frosted Film Installations" />
-    </div>
-    <p style="margin-top: 15px; font-style: italic; font-size: 0.95rem; color: #777;">
-      📸 Upload matching image files (e.g., <code>shower1.jpg</code>) in your GitHub repo to display them here.
-    </p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="color: #222;">📞 Phone: <strong>+254 743 033 842</strong></p>
-    <div class="whatsapp">
-      <a href="https://wa.me/254743033842" target="_blank">📱 Message us on WhatsApp</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Spetra Glass and Interiors KE. All rights reserved.</p>
-  </footer>
-
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>For inquiries and quotes, reach out to us:</p>
+      <a href="tel:+254743033842" class="phone">+254 743 033 842</a>
+    </section>
+  </main>
 </body>
 </html>
